@@ -1,0 +1,633 @@
+/* ============================
+   Reset & Base
+   ============================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #090e1a;
+  color: #e0e6f0;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ============================
+   Header
+   ============================ */
+
+/* Couleurs MAO MAKER */
+:root {
+  --mm-teal:     #71f7e6;
+  --mm-pink:     #ff0072;
+  --mm-gradient: linear-gradient(90deg, #71f7e6 40%, #ff0072);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  background: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(113,247,230,0.15);
+  flex-shrink: 0;
+}
+
+.app-header h1 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  background: var(--mm-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  letter-spacing: -0.01em;
+}
+
+.header-brand {
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  background: none;
+  -webkit-text-fill-color: rgba(113,247,230,0.55);
+  color: rgba(113,247,230,0.55);
+}
+
+.header-sub {
+  font-size: 0.74rem;
+  color: rgba(113,247,230,0.40);
+  margin-top: 2px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.fullscreen-btn {
+  background: rgba(113,247,230,0.08);
+  border: 1px solid rgba(113,247,230,0.25);
+  color: var(--mm-teal);
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: all 0.15s;
+}
+
+.fullscreen-btn:hover {
+  background: rgba(113,247,230,0.18);
+  color: white;
+}
+
+.reset-btn {
+  background: rgba(255,0,114,0.08);
+  border: 1px solid rgba(255,0,114,0.25);
+  color: var(--mm-pink);
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: all 0.15s;
+}
+
+.reset-btn:hover {
+  background: rgba(255,0,114,0.20);
+  color: white;
+}
+
+/* ============================
+   App Layout — 3 colonnes
+   ============================ */
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 195px 1fr 330px;
+  flex: 1;
+  min-height: 0;   /* crucial : permet au flex child de rétrécir sous sa taille naturelle */
+  overflow: hidden;
+}
+
+/* ============================
+   Sidebar gauche
+   ============================ */
+
+.sidebar-left {
+  border-right: 1px solid rgba(255,255,255,0.07);
+  padding: 14px 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.list-title {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7a9d;
+  margin-bottom: 6px;
+}
+
+.element-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.element-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 9px;
+  border-radius: 8px;
+  border: 1.5px solid;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.12s;
+  font-size: 0.82rem;
+}
+
+.element-btn:hover {
+  background: rgba(255,255,255,0.07) !important;
+}
+
+.el-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.el-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.el-name {
+  display: block;
+  font-weight: 500;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.el-depth-bar {
+  margin-top: 4px;
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.el-depth-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.2s;
+}
+
+.el-depth-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.el-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.82rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.12s, background 0.12s;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.element-btn:hover .el-action-btn {
+  opacity: 1;
+}
+
+.el-dup-btn {
+  color: #5b8dee;
+}
+
+.el-dup-btn:hover {
+  background: rgba(91,141,238,0.18);
+}
+
+.el-del-btn {
+  color: #e74c3c;
+}
+
+.el-del-btn:hover:not(:disabled) {
+  background: rgba(231,76,60,0.18);
+}
+
+.el-del-btn:disabled {
+  opacity: 0.2 !important;
+  cursor: not-allowed;
+}
+
+/* ============================
+   Légende
+   ============================ */
+
+.legend {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 12px;
+}
+
+.legend h4 {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7a9d;
+  margin-bottom: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 0.70rem;
+  color: #8892a4;
+}
+
+.legend-circle {
+  border-radius: 50%;
+  background: rgba(100,150,255,0.55);
+  flex-shrink: 0;
+}
+
+.legend-circle.large {
+  width: 15px;
+  height: 15px;
+}
+
+.legend-circle.small {
+  width: 8px;
+  height: 8px;
+  filter: blur(1px);
+  opacity: 0.45;
+}
+
+.legend-axis {
+  font-size: 1rem;
+  color: #5b8dee;
+  flex-shrink: 0;
+  width: 16px;
+  text-align: center;
+}
+
+/* ============================
+   Zone centrale (scène)
+   ============================ */
+
+.scene-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  gap: 0;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.scene-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Prend toute la hauteur disponible dans scene-main */
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+}
+
+.scene-svg {
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+
+/* Labels axes — maintenant dans le SVG, plus besoin de CSS externe */
+
+/* Barre de profondeur — maintenant dans le SVG */
+
+/* ============================
+   Bloc panoramique (sidebar droite)
+   ============================ */
+
+.pan-block {
+  margin: 14px 14px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid;
+  background: rgba(255,255,255,0.03);
+}
+
+.pan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.pan-header-label {
+  font-size: 0.68rem;
+  color: #6b7a9d;
+  font-weight: 400;
+}
+
+.pan-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pan-label {
+  font-size: 0.68rem;
+  color: #6b7a9d;
+  flex-shrink: 0;
+}
+
+.pan-slider {
+  flex: 1;
+}
+
+.pan-value {
+  font-size: 0.76rem;
+  font-weight: 700;
+  width: 34px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ============================
+   Curseurs (sliders)
+   ============================ */
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.1);
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px var(--track-color, #5b8dee), 0 2px 6px rgba(0,0,0,0.4);
+  transition: transform 0.1s;
+  margin-top: -6px;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: 3px solid var(--track-color, #5b8dee);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* ============================
+   Sidebar droite — contrôles
+   ============================ */
+
+.sidebar-right {
+  border-left: 1px solid rgba(255,255,255,0.07);
+  overflow-y: auto;
+  height: 100%;
+  min-height: 0;
+}
+
+.mix-controls {
+  padding: 12px 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* En-tête de l'élément */
+.element-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid;
+  margin-bottom: 4px;
+}
+
+.element-icon-large {
+  font-size: 1.9rem;
+}
+
+.element-info h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.position-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.badge {
+  font-size: 0.66rem;
+  padding: 2px 7px;
+  border-radius: 10px;
+  color: #a0b0cc;
+}
+
+/* ============================
+   Sections de paramètres
+   ============================ */
+
+.param-section {
+  margin-top: 2px;
+}
+
+.param-section-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #3a4a6a;
+  margin: 12px 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.section-icon {
+  font-size: 0.7rem;
+}
+
+/* Lignes de paramètre */
+.param-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 11px;
+}
+
+.param-row:last-child {
+  margin-bottom: 0;
+}
+
+.param-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.param-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.param-header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.param-value {
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+  text-align: right;
+}
+
+/* Effets gauche / droite */
+.param-effects {
+  display: flex;
+  justify-content: space-between;
+}
+
+.effect-tag {
+  font-size: 0.60rem;
+  color: #5a6a82;
+  max-width: 48%;
+}
+
+.effect-tag.left {
+  text-align: left;
+}
+
+.effect-tag.right {
+  text-align: right;
+}
+
+/* Règle courte */
+.param-short-rule {
+  font-size: 0.65rem;
+  color: #4a5a7a;
+  line-height: 1.35;
+  margin-top: 1px;
+  font-style: italic;
+}
+
+/* ============================
+   Bouton "Pourquoi ?"
+   ============================ */
+
+.why-btn {
+  font-size: 0.60rem;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #7a8aa8;
+  cursor: pointer;
+  transition: all 0.12s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.why-btn:hover {
+  background: rgba(255,255,255,0.12);
+  color: #c0cce8;
+}
+
+.why-btn.open {
+  background: rgba(91,141,238,0.15);
+  border-color: rgba(91,141,238,0.4);
+  color: #7aa4f0;
+}
+
+/* Bloc explication dépliable */
+.why-block {
+  display: flex;
+  gap: 8px;
+  background: #0b1526;
+  border-left: 2px solid;
+  border-radius: 0 6px 6px 0;
+  padding: 8px 10px;
+  margin-top: 2px;
+}
+
+.why-icon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.why-block p {
+  font-size: 0.67rem;
+  color: #8898b8;
+  line-height: 1.55;
+}
+
+/* ============================
+   Plein écran
+   ============================ */
+/* Le layout s'adapte automatiquement via flex:1 + min-height:0 */
