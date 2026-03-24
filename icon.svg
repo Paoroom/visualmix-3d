@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="#0d0d1a"/>
+
+  <!-- Grid lines (perspective) -->
+  <line x1="256" y1="160" x2="80" y2="380" stroke="#71f7e6" stroke-width="1" stroke-opacity="0.2"/>
+  <line x1="256" y1="160" x2="180" y2="380" stroke="#71f7e6" stroke-width="1" stroke-opacity="0.2"/>
+  <line x1="256" y1="160" x2="280" y2="380" stroke="#71f7e6" stroke-width="1" stroke-opacity="0.2"/>
+  <line x1="256" y1="160" x2="380" y2="380" stroke="#71f7e6" stroke-width="1" stroke-opacity="0.2"/>
+  <line x1="256" y1="160" x2="432" y2="380" stroke="#71f7e6" stroke-width="1" stroke-opacity="0.2"/>
+
+  <!-- Horizontal grid lines -->
+  <line x1="100" y1="260" x2="412" y2="260" stroke="#71f7e6" stroke-width="1" stroke-opacity="0.15"/>
+  <line x1="80" y1="320" x2="432" y2="320" stroke="#71f7e6" stroke-width="1" stroke-opacity="0.15"/>
+  <line x1="80" y1="380" x2="432" y2="380" stroke="#71f7e6" stroke-width="1" stroke-opacity="0.2"/>
+
+  <!-- Elements (circles) -->
+  <!-- Vocals - center front, large -->
+  <circle cx="256" cy="210" r="38" fill="#ff0072" fill-opacity="0.85"/>
+  <circle cx="256" cy="210" r="38" fill="none" stroke="#ff0072" stroke-width="2"/>
+
+  <!-- Bass - left, mid -->
+  <circle cx="155" cy="310" r="28" fill="#71f7e6" fill-opacity="0.7"/>
+
+  <!-- Drums - right, mid -->
+  <circle cx="340" cy="295" r="22" fill="#ffd700" fill-opacity="0.7"/>
+
+  <!-- Guitar - right front -->
+  <circle cx="310" cy="230" r="16" fill="#a78bfa" fill-opacity="0.8"/>
+
+  <!-- Pad - left back, small blurred -->
+  <circle cx="185" cy="355" r="12" fill="#71f7e6" fill-opacity="0.4"/>
+
+  <!-- Synth - center back, small -->
+  <circle cx="270" cy="345" r="10" fill="#ff0072" fill-opacity="0.35"/>
+
+  <!-- MAO MAKER brand line -->
+  <text x="256" y="450" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="800" fill="#ff0072" letter-spacing="2">MAO MAKER™</text>
+</svg>

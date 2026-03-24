@@ -1,0 +1,19 @@
+{
+  "name": "VisualMix 3D — MAO MAKER™",
+  "short_name": "VisualMix 3D",
+  "description": "Visualiseur 3D de mix audio — MAO MAKER™",
+  "start_url": "/visualmix-3d/",
+  "scope": "/visualmix-3d/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#0d0d1a",
+  "theme_color": "#71f7e6",
+  "icons": [
+    {
+      "src": "/visualmix-3d/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
